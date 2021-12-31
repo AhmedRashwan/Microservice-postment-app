@@ -3,6 +3,7 @@ const bodyParser = require("body-parser");
 const axios = require("axios");
 
 const app = express();
+const posts = [];
 app.use(bodyParser.json());
 
 app.post("/events", (req, res) => {
@@ -10,9 +11,19 @@ app.post("/events", (req, res) => {
 
   axios.post("http://localhost:4000/events", event);
   axios.post("http://localhost:4001/events", event);
-  axios.post("http://localhost:4002/events", event);
+  // axios.post("http://localhost:5000/events", event);
 
-  res.send({ status: "OK" });
+  if (event.type === "postCreated") {
+    const { id, title } = req.body;
+
+    posts[id] = { id, title, comments: [] };
+  } else if (event.type === "commentCreated") {
+    const { postId, id, content } = req.body;
+    const post = posts[postId];
+    post.comments.push({ id, content });
+  } else {
+  }
+  res.send({ posts: posts });
 });
 app.listen(5000, () => {
   console.log("event bus working now...");
