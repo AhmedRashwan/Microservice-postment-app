@@ -7,7 +7,7 @@
     "dev": "nodemon index.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Ahmed Rashwan",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.24.0",
