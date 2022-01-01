@@ -20,15 +20,26 @@ app.get("/posts", (req, res) => {
 app.post("/posts", async (req, res) => {
   const id = randomBytes(4).toString("hex");
   posts[id] = { id, title: req.body.title };
-
-  await axios.post("http://localhost:5000/events", {
-    type: "postCreated",
-    data: {
-      id,
-      title: req.body.title,
-    },
-  });
-  res.status(201).send(posts[id]);
+  try {
+    await axios
+      .post("http://localhost:5000/events", {
+        type: "postCreated",
+        data: {
+          id,
+          title: req.body.title,
+        },
+      })
+      .then(() => {
+        console.log("createPost event sent successfully");
+      })
+      .catch((err) => {
+        console.log("CreatePost event Failed", err);
+        res.status(500).send({ err });
+      });
+    res.status(201).send(posts[id]);
+  } catch (error) {
+    res.status(400).send(error);
+  }
 });
 
 app.post("/events", (req, res) => {
