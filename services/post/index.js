@@ -12,7 +12,8 @@ app.use(bodyParser.json());
  *
  */
 app.get("/posts", (req, res) => {
-  res.send(posts);
+  res.send("we are here1");
+  // res.send(posts);
 });
 /**
  *
