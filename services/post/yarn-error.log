@@ -1,0 +1,54 @@
+Arguments: 
+  /snap/node/5638/bin/node /snap/node/5638/bin/yarn.js add sequalize
+
+PATH: 
+  /home/max/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/max/.config/composer/vendor/bin
+
+Yarn version: 
+  1.22.15
+
+Node version: 
+  14.18.2
+
+Platform: 
+  linux x64
+
+Trace: 
+  Error: https://registry.yarnpkg.com/sequalize: Not found
+      at Request.params.callback [as _callback] (/snap/node/5638/lib/cli.js:67031:18)
+      at Request.self.callback (/snap/node/5638/lib/cli.js:140885:22)
+      at Request.emit (events.js:400:28)
+      at Request.<anonymous> (/snap/node/5638/lib/cli.js:141857:10)
+      at Request.emit (events.js:400:28)
+      at IncomingMessage.<anonymous> (/snap/node/5638/lib/cli.js:141779:12)
+      at Object.onceWrapper (events.js:519:28)
+      at IncomingMessage.emit (events.js:412:35)
+      at endReadableNT (internal/streams/readable.js:1334:12)
+      at processTicksAndRejections (internal/process/task_queues.js:82:21)
+
+npm manifest: 
+  {
+    "name": "post",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "dependencies": {
+      "axios": "^0.21.1",
+      "cores": "^0.8.5",
+      "cors": "^2.8.5",
+      "express": "^4.17.1",
+      "nodemon": "^2.0.15"
+    },
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1",
+      "dev": "nodemon index.js"
+    },
+    "author": "Ahmed Rashwan",
+    "license": "ISC"
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

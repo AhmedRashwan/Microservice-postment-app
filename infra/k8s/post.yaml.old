@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: post
+spec:
+  containers:
+    - name: post
+      image: post-service
+      resources:
+        limits:
+          memory: "128Mi"
+          cpu: "500m"
+
